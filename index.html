@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- meta -->
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Moeez Mujahid - Portfolio</title>
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Playfair+Display:400,400i,700,700i,900,900i"
+    rel="stylesheet">
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Libraries CSS Files -->
+  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="lib/magnific-popup/magnific-popup.css" rel="stylesheet">
+  <link href="lib/hover/hover.min.css" rel="stylesheet">
+  <!-- Main Stylesheet File -->
+  <link href="css/style.css" rel="stylesheet">
+  <!-- Responsive css -->
+  <link href="css/responsive.css" rel="stylesheet">
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="images/favicon.png">
+  <!-- icons pack -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.14.0/devicon.min.css">
+  <!-- =======================================================
+         Theme Name: Folio
+         Theme URL: https://bootstrapmade.com/folio-bootstrap-portfolio-template/
+         Author: BootstrapMade.com
+         Author URL: https://bootstrapmade.com
+         ======================================================= -->
+</head>
+
+<body>
+
+
+
+  <div id="navContent"></div>
+  <div id="headerContent"></div>
+  <div id="aboutusContent"></div>
+  <div id="skillContent"></div>
+  <div id="experienceContent"></div>
+  <div id="educationContent"></div>
+  <div id="portfolio"></div>
+  <div id="contactContent"></div>
+
+
+
+  <!-- JavaScript Libraries -->
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/jquery/jquery-migrate.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/typed/typed.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="lib/magnific-popup/magnific-popup.min.js"></script>
+  <script src="lib/isotope/isotope.pkgd.min.js"></script>
+
+  <!-- Contact Form JavaScript File -->
+  <!-- <script src="contactform/contactform.js"></script> -->
+  <!-- Template Main Javascript File -->
+  <script src="js/main.js"></script>
+
+  <script>
+    $(function () {
+      $("#navContent").load("./pages/nav.html");
+      // $("#headerContent").load("./pages/header.html"); 
+
+      $("#headerContent").load("./pages/header.html", function () {
+        // Initialize typed.js here
+        $(".typed").typed({
+          strings: ["Moeez Mujahid.", "Software Engineer."],
+          typeSpeed: 100,
+          loop: true,
+        });
+      });
+
+
+      $("#aboutusContent").load("./pages/aboutMe.html");
+
+
+      $("#experienceContent").load("./pages/experience.html");
+
+      $("#skillContent").load("./pages/skills.html", function () {
+        $(document).ready(function () {
+          // Adjusted to match the updated class structure
+          $('.services-carousel').owlCarousel({
+            autoplay: true,
+            loop: true,
+            margin: 20,
+            dots: true,
+            nav: false,
+            responsiveClass: true,
+            responsive: { 0: { items: 1 }, 768: { items: 2 }, 900: { items: 4 } }
+          });
+        });
+
+      });
+
+
+      $("#educationContent").load("./pages/education.html");
+
+      $("#portfolio").load("./pages/portfolio.html", function (response, status, xhr) {
+        if (status == "error") {
+          console.log("Error loading the page: " + xhr.statusText);
+        } else {
+          console.log("Page loaded successfully");
+          setupPortfolioFilters();
+        }
+      });
+
+      $("#contactContent").load("./pages/contact.html");
+
+    });
+  </script>
+
+</body>
+
+</html>
